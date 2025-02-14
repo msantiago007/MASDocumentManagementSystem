@@ -1,0 +1,3 @@
+(venv) PS C:\Projects\DocumentManagement\Application> pip install tensorflow
+ERROR: Could not find a version that satisfies the requirement tensorflow (from versions: none)
+ERROR: No matching distribution found for tensorflow
