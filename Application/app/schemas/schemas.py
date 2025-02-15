@@ -1,20 +1,37 @@
+"""
+Pydantic Schema Definitions
+
+This module defines Pydantic models for request/response validation, including:
+- Base schemas for common attributes
+- Create schemas for new resource creation
+- Response schemas for API outputs
+- Update schemas for resource modifications
+- Data validation and type checking
+
+Author: Marco Alejandro Santiago
+Created: February 7, 2025
+"""
+
 from pydantic import BaseModel, EmailStr, constr
 from typing import Optional, List
 from datetime import datetime
 
-# Base Schemas - Used for common attributes
+# Base Schemas - Define core attributes for each resource type
 class UserBase(BaseModel):
+    """Base user attributes for validation"""
     Username: str
     Email: EmailStr
     IsActive: bool = True
 
 class DocumentTypeBase(BaseModel):
+    """Base document type configuration"""
     TypeName: str
     Description: Optional[str] = None
     SchemaDefinition: Optional[str] = None
     IsActive: bool = True
 
 class DocumentBase(BaseModel):
+    """Core document attributes"""
     DocumentName: str
     FileType: str
     DocumentTypeId: Optional[int] = None
@@ -40,14 +57,17 @@ class TopicBase(BaseModel):
     ParentTopicId: Optional[int] = None
     IsActive: bool = True
 
-# Create Schemas - Used when creating new items
+# Create Schemas - Used for validating new resource creation requests
 class UserCreate(UserBase):
+    """Extends UserBase to include password for user creation"""
     Password: str
 
 class DocumentTypeCreate(DocumentTypeBase):
+    """Document type creation schema - uses base attributes"""
     pass
 
 class DocumentCreate(DocumentBase):
+    """Document creation with additional required fields"""
     FileSizeBytes: int
     ContentHash: str
 
@@ -64,8 +84,9 @@ class TagCreate(TagBase):
 class TopicCreate(TopicBase):
     pass
 
-# Response Schemas - Used for API responses
+# Response Schemas - Define API response structures
 class User(UserBase):
+    """Complete user representation including system-generated fields"""
     UserId: int
     CreatedDate: datetime
     LastLoginDate: Optional[datetime] = None
@@ -74,6 +95,7 @@ class User(UserBase):
         from_attributes = True
 
 class DocumentType(DocumentTypeBase):
+    """Complete document type representation with timestamps"""
     DocumentTypeId: int
     CreatedDate: datetime
     LastModifiedDate: datetime
@@ -129,14 +151,16 @@ class Topic(TopicBase):
     class Config:
         from_attributes = True
 
-# Update Schemas - Used when updating existing items
+# Update Schemas - Define allowed fields for resource updates
 class UserUpdate(BaseModel):
+    """Optional fields that can be updated for a user"""
     Username: Optional[str] = None
     Email: Optional[EmailStr] = None
     Password: Optional[str] = None
     IsActive: Optional[bool] = None
 
 class DocumentTypeUpdate(BaseModel):
+    """Optional fields that can be updated for a document type"""
     TypeName: Optional[str] = None
     Description: Optional[str] = None
     SchemaDefinition: Optional[str] = None
