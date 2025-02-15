@@ -214,12 +214,6 @@ git commit -m "Descriptive message"
 # Push changes
 git push origin feature/feature-name
 
-## Support and Contact
-
-For technical support or questions:
-- Create an issue in the repository
-- Contact the development team at [email]
-
 ## License
 
 N/A
