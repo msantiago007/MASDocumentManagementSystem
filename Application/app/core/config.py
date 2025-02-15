@@ -1,3 +1,16 @@
+"""
+Application Configuration Settings
+
+This module defines the application's configuration settings using Pydantic, including:
+- Project metadata (name, version, API prefix)
+- Database connection settings
+- File storage paths
+- Environment-specific configurations
+
+Author: Marco Alejandro Santiago
+Created: February 7, 2025
+"""
+
 from pydantic_settings import BaseSettings
 from functools import lru_cache
 from pathlib import Path
