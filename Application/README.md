@@ -193,6 +193,6 @@ pip install -r requirements.txt
 
 N/A
 
-## Contact Info
+## Contact Information
 Marco Alejandro Santiago
 msantiago@excelendeavormedia.com
