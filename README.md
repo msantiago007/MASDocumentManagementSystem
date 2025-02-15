@@ -189,41 +189,10 @@ pip install -r requirements.txt
 - Application logs are stored in `logs/app.log`
 - Database logs are in PostgreSQL's default logging location
 
-## Development Guidelines
-
-1. Code Style
-- Follow PEP 8 guidelines
-- Use type hints
-- Document all functions and classes
-
-2. Testing
-# Run tests
-pytest
-
-# Run with coverage
-pytest --cov=app tests/
-
-3. Git Workflow
-# Create feature branch
-git checkout -b feature/feature-name
-
-# Commit changes
-git add .
-git commit -m "Descriptive message"
-
-# Push changes
-git push origin feature/feature-name
-
-## Support and Contact
-
-For technical support or questions:
-- Create an issue in the repository
-- Contact the development team at [email]
-
 ## License
 
 N/A
 
-## Contact Info
+## Contact Information
 Marco Alejandro Santiago
 msantiago@excelendeavormedia.com
